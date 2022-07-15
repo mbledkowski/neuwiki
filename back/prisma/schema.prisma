@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Section {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  urlName   String   @unique
+  name      String
+  text      String
+  fields    Json
+  i18n      Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("sections")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  wallet    String   @unique
+  nonce     Int
+  type      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model EventStore {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  aggregateId   String
+  aggregateType String
+  eventType     String
+  eventData     String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("event_store")
+}
+
+// Out of intense complexities, intense simplicities emerge”
+
+// ― Winston S. Churchill
