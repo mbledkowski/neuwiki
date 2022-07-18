@@ -22,7 +22,7 @@ model Section {
 
 model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  name      String   @default("")
   wallet    String   @unique
   nonce     Int
   type      String   @default("user")
