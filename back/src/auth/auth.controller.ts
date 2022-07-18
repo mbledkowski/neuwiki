@@ -4,7 +4,7 @@ import { WalletDto, SignedDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('sign')
   signup(@Body() dto: WalletDto) {
