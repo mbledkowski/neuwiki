@@ -11,9 +11,9 @@ export class CreateDto {
   fields: {
     [key: string]:
       | string
-      | Date
-      | Array<string | Date>
-      | { [key: string]: string | Date | Array<string | Date> };
+      | number
+      | Array<string | number>
+      | { [key: string]: string | number | Array<string | number> };
   };
   @ApiProperty()
   text: string;
@@ -35,9 +35,9 @@ export class CreateDto {
     fields: {
       [key: string]:
         | string
-        | Date
-        | Array<string | Date>
-        | { [key: string]: string | Date | Array<string | Date> };
+        | number
+        | Array<string | number>
+        | { [key: string]: string | number | Array<string | number> };
     };
     text: string;
   }[];

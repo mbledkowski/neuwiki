@@ -11,9 +11,9 @@ export class CreateSectionService {
         data: {
           urlName: dto.urlName,
           name: dto.name,
-          fields: JSON.stringify(dto.fields),
+          fields: dto.fields,
           text: dto.text,
-          i18n: JSON.stringify(dto.i18n),
+          i18n: dto.i18n,
         },
       });
       return { status: 'Added' };
