@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 const description = process.env.npm_package_description;
-console.log(process.env);
 const version = process.env.npm_package_version;
 
 async function bootstrap() {
