@@ -1,7 +1,9 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateSectionService } from './create-section.service';
 import { CreateDto } from './dto';
 
+@UseGuards(AuthGuard('jwt-editor'))
 @Controller('create')
 export class CreateSectionController {
   constructor(private readonly createSectionService: CreateSectionService) {}

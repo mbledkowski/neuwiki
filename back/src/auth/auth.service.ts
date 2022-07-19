@@ -71,7 +71,9 @@ export class AuthService {
             nonce: this.generateNonce(),
           },
         });
-        return { access_token: await this.signToken(user.id, user.wallet) };
+        return {
+          access_token: await this.signToken(user.id, user.wallet, user.type),
+        };
       } else {
         throw new ForbiddenException('Invalid signature');
       }
@@ -79,10 +81,11 @@ export class AuthService {
       throw new ForbiddenException('Invalid signature');
     }
   }
-  signToken(id: string, wallet: string): Promise<string> {
+  signToken(id: string, wallet: string, type: string): Promise<string> {
     const payload = {
       sub: id,
       wallet,
+      type,
     };
     const secret = this.config.get('JWT_SECRET');
     return this.jwt.signAsync(payload, {
