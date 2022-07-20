@@ -1,19 +1,18 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { FetchDto } from './dto';
 
 @Injectable()
 export class FetchSectionService {
   constructor(private readonly prisma: PrismaService) { }
-  async fetchSection(dto: FetchDto) {
-    if (dto.id) {
+  async fetchSection({ id, urlName }: { id?: string; urlName?: string }) {
+    if (id) {
       return await this.prisma.section.findFirst({
-        where: { id: dto.id },
+        where: { id },
       });
     }
-    if (dto.urlName) {
+    if (urlName) {
       return await this.prisma.section.findFirst({
-        where: { urlName: dto.urlName },
+        where: { urlName },
       });
     }
     throw new ForbiddenException('No id or urlName provided');
