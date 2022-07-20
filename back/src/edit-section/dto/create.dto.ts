@@ -3,5 +3,5 @@ import { CreateDto } from 'src/create-section/dto';
 
 export class EditDto extends CreateDto {
   @ApiProperty()
-  readonly id: string;
+  id: string;
 }

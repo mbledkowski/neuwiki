@@ -6,11 +6,13 @@ import { EditDto } from './dto';
 export class EditSectionService {
   constructor(private readonly prisma: PrismaService) { }
   async editSection(dto: EditDto) {
+    const dtoWithoutID = Object.assign({}, dto)
+    delete dtoWithoutID.id
     return this.prisma.section.update({
       where: {
         id: dto.id,
       },
-      data: dto,
+      data: dtoWithoutID,
     });
   }
 }
