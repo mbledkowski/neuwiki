@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { CreateSectionModule } from './create-section/create-section.module';
 import { CoffeeModule } from './coffee/coffee.module';
 import { FetchSectionModule } from './fetch-section/fetch-section.module';
+import { EditSectionModule } from './edit-section/edit-section.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { FetchSectionModule } from './fetch-section/fetch-section.module';
     CreateSectionModule,
     CoffeeModule,
     FetchSectionModule,
+    EditSectionModule,
   ],
 })
 export class AppModule {}
