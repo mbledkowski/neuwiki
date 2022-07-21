@@ -11,6 +11,7 @@ model Section {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   urlName   String   @unique
   name      String
+  type      String
   text      String
   fields    Json
   i18n      Json?

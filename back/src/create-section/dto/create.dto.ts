@@ -5,15 +5,17 @@ export class CreateDto {
   urlName: string;
   @ApiProperty()
   name: string;
+  @ApiProperty()
+  type: string;
   @ApiProperty({
     type: 'object',
   })
   fields: {
     [key: string]:
-      | string
-      | number
-      | Array<string | number>
-      | { [key: string]: string | number | Array<string | number> };
+    | string
+    | number
+    | Array<string | number>
+    | { [key: string]: string | number | Array<string | number> };
   };
   @ApiProperty()
   text: string;
@@ -34,10 +36,10 @@ export class CreateDto {
     name: string;
     fields: {
       [key: string]:
-        | string
-        | number
-        | Array<string | number>
-        | { [key: string]: string | number | Array<string | number> };
+      | string
+      | number
+      | Array<string | number>
+      | { [key: string]: string | number | Array<string | number> };
     };
     text: string;
   }[];
